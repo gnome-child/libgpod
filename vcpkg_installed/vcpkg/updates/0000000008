@@ -1,9 +1,0 @@
-Package: glib
-Version: 2.80.0
-Port-Version: 1
-Depends: dirent, gettext, gettext-libintl, libffi, libiconv, pcre2, vcpkg-tool-meson, zlib
-Architecture: x64-windows
-Multi-Arch: same
-Abi: 1c66e11f7826549e41bfd73a6bd7d5aa64e5e4390edeb6f2e752986bdf4af04b
-Description: Portable, general-purpose utility library.
-Status: purge ok half-installed
