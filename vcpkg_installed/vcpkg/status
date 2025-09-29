@@ -1,0 +1,290 @@
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: a50460602607c93f6c012243efdbca095dc0d7321d0c236d5aa8db6c2bc62d51
+Status: install ok installed
+
+Package: zlib
+Version: 1.3.1
+Depends: vcpkg-cmake
+Architecture: x64-windows
+Multi-Arch: same
+Abi: bc77c467c26dde4ee5d21804937eeab27f6ea1ff046209ced9b178cce36e28a9
+Description: A compression library
+Status: install ok installed
+
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 7872d39486d7e5d54e0e9ceec652ae735fceb2aeb7bf976f66d2ef00433481eb
+Status: install ok installed
+
+Package: liblzma
+Version: 5.6.3
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 16d0f50d2d46cfd8d1bafc26c0a40e01c4d6707a3f72456fe714094bad7d2b2d
+Description: Compression library with an API similar to that of zlib.
+Status: install ok installed
+
+Package: libjpeg-turbo
+Version: 3.0.4
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 892e281386ba3df748c4cceaf18c3972cd787ddebb80e4a519a75f9db951d18e
+Description: libjpeg-turbo is a JPEG image codec that uses SIMD instructions (MMX, SSE2, NEON, AltiVec) to accelerate baseline JPEG compression and decompression on x86, x86-64, ARM, and PowerPC systems.
+Status: install ok installed
+
+Package: tiff
+Version: 4.7.0
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: c853e2aa162ff810030f69d2d01099e073c9dbd964b897d43cccef527aae4515
+Description: A library that supports the manipulation of TIFF image files
+Default-Features: jpeg, lzma, zip
+Status: install ok installed
+
+Package: tiff
+Feature: jpeg
+Depends: libjpeg-turbo
+Architecture: x64-windows
+Multi-Arch: same
+Description: Support JPEG compression in TIFF image files
+Status: install ok installed
+
+Package: tiff
+Feature: lzma
+Depends: liblzma
+Architecture: x64-windows
+Multi-Arch: same
+Description: Support LZMA compression in TIFF image files
+Status: install ok installed
+
+Package: tiff
+Feature: zip
+Depends: zlib
+Architecture: x64-windows
+Multi-Arch: same
+Description: Support ZIP/deflate compression in TIFF image files
+Status: install ok installed
+
+Package: libpng
+Version: 1.6.43
+Port-Version: 3
+Depends: vcpkg-cmake, vcpkg-cmake-config, zlib
+Architecture: x64-windows
+Multi-Arch: same
+Abi: d7d29bc2f1741d5286ce1bec040bc8b5eb0d220c996aa73f58542aed837a0133
+Description: libpng is a library implementing an interface for reading and writing PNG (Portable Network Graphics) format files
+Status: install ok installed
+
+Package: vcpkg-cmake-get-vars
+Version: 2024-09-22
+Depends: vcpkg-cmake
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 591d1ba756811f5c89229cef3c3e1ef3e0da46041a43b2285293174605292d68
+Status: install ok installed
+
+Package: vcpkg-tool-meson
+Version: 1.6.0
+Depends: vcpkg-cmake-get-vars
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 469e755a1972f124aa39d05f89ccbec660ef40b8a4ab90e53072f8850c14fcb3
+Description: Meson build system
+Status: install ok installed
+
+Package: pcre2
+Version: 10.43
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 82a4cdef2be9b6dcceaf5c77550b236a83c34e401284d748b96de6b716fc612e
+Description: Regular Expression pattern matching using the same syntax and semantics as Perl 5.
+Default-Features: platform-default-features
+Status: install ok installed
+
+Package: pcre2
+Feature: jit
+Architecture: x64-windows
+Multi-Arch: same
+Description: Enable support for Just-In-Time compiling regex matchers
+Status: install ok installed
+
+Package: pcre2
+Feature: platform-default-features
+Architecture: x64-windows
+Multi-Arch: same
+Description: Enable default features
+Status: install ok installed
+
+Package: libiconv
+Version: 1.17
+Port-Version: 4
+Architecture: x64-windows
+Multi-Arch: same
+Abi: f9d6e2efb082755d34f8e996ab2f3129dc4277dd22d0720e1d6a41a271722997
+Description: GNU Unicode text conversion
+Status: install ok installed
+
+Package: libffi
+Version: 3.4.6
+Depends: vcpkg-cmake-get-vars
+Architecture: x64-windows
+Multi-Arch: same
+Abi: a0e6fbac79a87ee403835c63eb81ad1bb5955508b3deabd7d0c111775a73b602
+Description: Portable, high level programming interface to various calling conventions
+Status: install ok installed
+
+Package: gettext-libintl
+Version: 0.22.5
+Port-Version: 2
+Depends: libiconv
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 4fcb44bb6abefc8e60949e24fb1a2bd7ba0e8b829166b13f3318cbc86711123a
+Description: The libintl C library from GNU gettext-runtime.
+Status: install ok installed
+
+Package: gettext
+Version: 0.22.5
+Port-Version: 1
+Depends: gettext-libintl
+Architecture: x64-windows
+Multi-Arch: same
+Abi: b86b6799d11dd9328535920b54c6fad4591dd2a816a1f8485003bb450477e232
+Description: A GNU framework to help produce multi-lingual messages.
+Status: install ok installed
+
+Package: gettext
+Feature: tools
+Depends: libiconv
+Architecture: x64-windows
+Multi-Arch: same
+Description: Build gettext tools
+Status: install ok installed
+
+Package: dirent
+Version: 1.24
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 30357bc99ec1cb2efd3e76c7a83f657d55475644000ee83ff79bf0251899529d
+Description: Dirent is a C/C++ programming interface that allows programmers to retrieve information about files and directories under Linux/UNIX. This project provides Linux compatible Dirent interface for Microsoft Windows.
+Status: install ok installed
+
+Package: glib
+Version: 2.80.0
+Port-Version: 1
+Depends: dirent, gettext, gettext-libintl, libffi, libiconv, pcre2, vcpkg-tool-meson, zlib
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 1c66e11f7826549e41bfd73a6bd7d5aa64e5e4390edeb6f2e752986bdf4af04b
+Description: Portable, general-purpose utility library.
+Status: install ok installed
+
+Package: gdk-pixbuf
+Version: 2.42.12
+Port-Version: 1
+Depends: gettext, gettext-libintl, glib, vcpkg-tool-meson
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 828bf567d88e21a11b09619aaf4dc6ead92d1f0f45b4d702a4c4b527edd7d070
+Description: Image loading library.
+Default-Features: jpeg, png, tiff
+Status: install ok installed
+
+Package: gdk-pixbuf
+Feature: jpeg
+Depends: libjpeg-turbo
+Architecture: x64-windows
+Multi-Arch: same
+Description: Enable JPEG loader (requires libjpeg)
+Status: install ok installed
+
+Package: gdk-pixbuf
+Feature: png
+Depends: libpng
+Architecture: x64-windows
+Multi-Arch: same
+Description: Enable PNG loader (requires libpng)
+Status: install ok installed
+
+Package: gdk-pixbuf
+Feature: tiff
+Depends: tiff
+Architecture: x64-windows
+Multi-Arch: same
+Description: Enable TIFF loader (requires libtiff)
+Status: install ok installed
+
+Package: openssl
+Version: 3.4.0
+Depends: vcpkg-cmake, vcpkg-cmake-config, vcpkg-cmake-get-vars
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 615e4207b34f0fa020a7bf7fb8df4b28e375af8fd063e24160d2e37b1af87715
+Description: OpenSSL is an open source project that provides a robust, commercial-grade, and full-featured toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols. It is also a general-purpose cryptography library.
+Status: install ok installed
+
+Package: libplist
+Version: 2023-06-15
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: c29a8f6a06d0334d74ef5e79e7279064c1468e948ea78057dc5be6bc8ada6bed
+Description: A library to handle Apple Property List format in binary or XML
+Status: install ok installed
+
+Package: libimobiledevice-glue
+Version: 2023-05-13
+Depends: libplist, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 11251dbe246d92962f052b787938d3c91463bf59abf33238737b2c5a3b9ef76b
+Description: Library with common code used by the libraries and tools around the libimobiledevice project.
+Status: install ok installed
+
+Package: libusbmuxd
+Version: 2023-06-21
+Port-Version: 1
+Depends: libimobiledevice-glue, libplist, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 9f0328dac5275598b12d33aae6e1089c5c68a7518347c534f5e05f5e65949f21
+Description: A client library to multiplex connections from and to iOS devices
+Status: install ok installed
+
+Package: libimobiledevice
+Version: 2023-07-05
+Port-Version: 1
+Depends: dirent, libimobiledevice-glue, libplist, libusbmuxd, openssl, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: d39393812d882b0af500e5da9f74c2d2e7ddda36fa3737ee0d7e81c684d562b3
+Description: A cross-platform protocol library to communicate with iOS devices
+Status: install ok installed
+
+Package: sqlite3
+Version: 3.47.0
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: a5096ac0a17573c321f7a4f90d5578609763e111615d04b9bb54f47909f7c5ec
+Description: SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.
+Default-Features: json1
+Status: install ok installed
+
+Package: sqlite3
+Feature: json1
+Architecture: x64-windows
+Multi-Arch: same
+Description: Enable JSON functionality for sqlite3
+Status: install ok installed
+

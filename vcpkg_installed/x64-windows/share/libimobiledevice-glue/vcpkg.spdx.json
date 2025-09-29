@@ -1,0 +1,264 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/libimobiledevice-glue-x64-windows-2023-05-13-342787ed-b34a-4c4d-b066-9c1a5e1b3233",
+  "name": "libimobiledevice-glue:x64-windows@2023-05-13 11251dbe246d92962f052b787938d3c91463bf59abf33238737b2c5a3b9ef76b",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2024-10-18-e392d7347fe72dff56e7857f7571c22301237ae6"
+    ],
+    "created": "2025-09-29T03:09:34Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-2"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-3"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-4"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-5"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-6"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-7"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-8"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-3",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-4",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-5",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-6",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-7",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-8",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "libimobiledevice-glue",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "2023-05-13",
+      "downloadLocation": "NOASSERTION",
+      "homepage": "https://libimobiledevice.org/",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "Library with common code used by the libraries and tools around the libimobiledevice project.",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "libimobiledevice-glue:x64-windows",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "11251dbe246d92962f052b787938d3c91463bf59abf33238737b2c5a3b9ef76b",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-1",
+      "name": "libimobiledevice/libimobiledevice-glue",
+      "downloadLocation": "git+https://github.com/libimobiledevice/libimobiledevice-glue@214bafdde6a1434ead87357afe6cb41b32318495",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "a12ace7690ebab0ac6372f61e1a6722d506bc20a89130f39441af4da74e8fe9cdae45d947eb3e864a5f043b621432b59418f8e4660857e25b648a9476c552ac6"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/001_fix_win32_defs.patch",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "17131253b304d5b77be1e9a9549a530ae650c8e6a55660b0bc62e1bcd0b05f19"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/002_fix_msvc.patch",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "21f849b00960f25b85c4559fa34af57d5911ad8bc124d0822a5c98bc49610fe6"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/003_fix_static_build.patch",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "caa42dd12576c5883c4eb399641c941ea2473837fd26740dc3928c03cf259535"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/004_fix_api.patch",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "bba6a5e2823b364f386820c8ef9cfd1f7ab88a8b4edec895ee171d0d8e7f489f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/CMakeLists.txt",
+      "SPDXID": "SPDXRef-file-4",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "487474dcd518d43bc27d58708ea32f630a57942173a63c89a66518aa711ec699"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/exports.def",
+      "SPDXID": "SPDXRef-file-5",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "909b454c373dc19db2e648981c86dead33ba832bffd1716715423cbb0a61ad2f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/portfile.cmake",
+      "SPDXID": "SPDXRef-file-6",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "304cb4bf4a8569b9b01b79e42132c94bc25afea292e1457104d65eefb6cb2a34"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/usage",
+      "SPDXID": "SPDXRef-file-7",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "28a40452baac65c3ab4ff2a6a9dc793041ef77805c9ec3063a80cd7565cad55f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice-glue/vcpkg.json",
+      "SPDXID": "SPDXRef-file-8",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e6fc12ce7218630614740982ee42a795a1cec230d0c61fc9240765e95819a6c5"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

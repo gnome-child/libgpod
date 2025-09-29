@@ -1,76 +1,67 @@
 cmake_minimum_required(VERSION 3.16)
-project(libgpod C)
 
-if (MSVC)
-  # Treat as modern C, good warnings
-  add_compile_options(/W4 /permissive-)
+project(libgpod
+  VERSION 0.8.0
+  LANGUAGES C
+)
 
-  # Force-include our Windows shim before any headers are parsed
-  add_compile_options(/FI"${CMAKE_SOURCE_DIR}/src/win_compat.h")
-
-  # Ensure our local shim 'src/unistd.h' is found before system includes
-  include_directories(BEFORE "${CMAKE_SOURCE_DIR}/src")
-endif()
-
-include(CheckIncludeFiles)
-include(FindPkgConfig)
 include(GNUInstallDirs)
+include(CheckIncludeFiles)
+find_package(PkgConfig REQUIRED)
 
-# --- Toolchain / vcpkg hints (harmless elsewhere) ---
-# Helps CMake/pkconfig find vcpkg-installed libs on Windows
-if(DEFINED ENV{VCPKG_ROOT} AND DEFINED VCPKG_TARGET_TRIPLET)
-  list(APPEND CMAKE_PREFIX_PATH "$ENV{VCPKG_ROOT}/installed/${VCPKG_TARGET_TRIPLET}")
+# --- Make pkg-config painless on Windows when using vcpkg ---
+if (WIN32 AND DEFINED ENV{VCPKG_ROOT} AND DEFINED VCPKG_TARGET_TRIPLET)
+  set(PKG_CONFIG_EXECUTABLE
+      "$ENV{VCPKG_ROOT}/installed/${VCPKG_TARGET_TRIPLET}/tools/pkgconf/pkgconf"
+      CACHE FILEPATH "pkg-config for the active vcpkg triplet")
+  list(APPEND CMAKE_PREFIX_PATH
+      "$ENV{VCPKG_ROOT}/installed/${VCPKG_TARGET_TRIPLET}")
 endif()
 
-# --- Warnings & language flags ---
-set(COMPILE_OPTIONS "")
+# --- Options (keep optional deps OFF by default, except gdk-pixbuf) ---
+option(ENABLE_GDKPIXBUF        "Build with gdk-pixbuf support" ON)
+option(ENABLE_LIBIMOBILEDEVICE "Build with libimobiledevice support" OFF)
+option(BUILD_WERROR            "Treat warnings as errors" OFF)
 
-if(MSVC)
-  # Force-include our Windows shims with an absolute path so MSVC always finds it.
-  add_compile_options(/FI"${CMAKE_CURRENT_SOURCE_DIR}/src/win_compat.h")
+# --- Core deps (pkg-config imported targets) ---
+pkg_check_modules(GLIB     REQUIRED IMPORTED_TARGET glib-2.0)
+pkg_check_modules(GMODULE  REQUIRED IMPORTED_TARGET gmodule-2.0)
+pkg_check_modules(GOBJECT  REQUIRED IMPORTED_TARGET gobject-2.0)
+pkg_check_modules(SQLITE3  REQUIRED IMPORTED_TARGET sqlite3)
+pkg_check_modules(ZLIB     REQUIRED IMPORTED_TARGET zlib)
+pkg_search_module(LIBPLIST REQUIRED IMPORTED_TARGET libplist-2.0 libplist)
 
-  add_compile_definitions(
-    _CRT_SECURE_NO_WARNINGS
-    NOMINMAX
-    WIN32_LEAN_AND_MEAN
-  )
+# Optional deps – probe only if requested
+if(ENABLE_GDKPIXBUF)
+  pkg_check_modules(GDKPIXBUF IMPORTED_TARGET gdk-pixbuf-2.0)
+endif()
 
-  list(APPEND COMPILE_OPTIONS
-    /W4 /permissive-
-    /wd4100  # unreferenced formal parameter (common in GObject callbacks)
-    /wd4068  # unknown pragma (for #pragma GCC diagnostic)
-    /wd4244  # narrowing conversions (lots of guint/char)
-    /wd4996  # POSIX names like unlink (shimmed in win_compat.h)
-    $<$<COMPILE_LANGUAGE:C>:/std:c11>
-  )
+if(ENABLE_LIBIMOBILEDEVICE)
+  pkg_check_modules(LIBIMOBILEDEVICE IMPORTED_TARGET libimobiledevice-1.0)
+endif()
+
+# --- Small platform probes / config.h ---
+if(NOT WIN32)
+  check_include_files(unistd.h HAVE_UNISTD_H)
 else()
-  list(APPEND COMPILE_OPTIONS
-    -std=c99
-    -Wall -Wextra -Wpedantic
-    -Wunused -Wshadow -Wuninitialized
-    -Wredundant-decls -Winit-self
-    -Wmissing-include-dirs -Wmissing-declarations
-    -Wstrict-overflow=2 -Wunused-parameter
-    -Wformat=2 -Wdisabled-optimization
-  )
-  if(CMAKE_C_COMPILER_ID MATCHES "GNU")
-    list(APPEND COMPILE_OPTIONS -Wno-cast-function-type)
-  endif()
+  set(HAVE_UNISTD_H 0)
 endif()
 
-option(BUILD_WERROR "Build with -Werror" OFF)
-if(BUILD_WERROR)
-  if(MSVC)
-    list(APPEND COMPILE_OPTIONS /WX)
-  else()
-    list(APPEND COMPILE_OPTIONS -Werror)
-  endif()
+# GLib >= 2.68 has g_memdup2
+if(GLIB_VERSION VERSION_GREATER_EQUAL "2.68")
+  set(HAVE_G_MEMDUP2 ON)
 endif()
 
-add_compile_options(${COMPILE_OPTIONS})
+set(LIBGPOD_VERSION "${PROJECT_VERSION}")
+set(LIBGPOD_BLOB_DIR "${CMAKE_INSTALL_PREFIX}/libgpod")
 
-# --- Sources ---
-set(SOURCES
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/config.h.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/config.h" @ONLY)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/libgpod-1.0.pc.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/libgpod-1.0.pc" @ONLY)
+
+# --- Sources & library ---
+set(LIBGPOD_SOURCES
   src/itdb_thumb.c
   src/itdb_track.c
   src/itdb_zlib.c
@@ -98,110 +89,65 @@ set(SOURCES
   src/itdb_plist.c
 )
 
-# --- Dependencies via pkg-config ---
-find_package(PkgConfig REQUIRED)
+add_library(gpod SHARED ${LIBGPOD_SOURCES})
 
-pkg_check_modules(GLIB REQUIRED glib-2.0)
-pkg_check_modules(GMODULE REQUIRED gmodule-2.0)
-pkg_check_modules(GOBJECT REQUIRED gobject-2.0)
-pkg_check_modules(GDK_PIXBUF gdk-pixbuf-2.0)
-# libplist can be called libplist-2.0 or libplist depending on distro/vcpkg
-pkg_search_module(LIBPLIST REQUIRED libplist-2.0 libplist)
-pkg_check_modules(LIBIMOBILEDEVICE libimobiledevice-1.0)
-pkg_check_modules(SQLITE3 REQUIRED sqlite3)
-pkg_check_modules(ZLIB REQUIRED zlib)
-
-# POSIX headers: only probe on non-Windows
-if(NOT WIN32)
-  check_include_files(unistd.h HAVE_UNISTD_H)
-else()
-  set(HAVE_UNISTD_H 0)
+# C standard & warnings
+target_compile_features(gpod PRIVATE c_std_11)
+target_compile_options(gpod PRIVATE
+  $<$<C_COMPILER_ID:MSVC>:/W4 /permissive- /wd4100 /wd4068 /wd4244 /wd4267 /wd4996>
+  $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wredundant-decls -Wunused -Wuninitialized>
+  $<$<AND:$<NOT:$<C_COMPILER_ID:MSVC>>,$<C_COMPILER_ID:GNU>>:-Wno-cast-function-type>
+)
+if(BUILD_WERROR)
+  target_compile_options(gpod PRIVATE
+    $<$<C_COMPILER_ID:MSVC>:/WX>
+    $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Werror>
+  )
 endif()
 
-option(ENABLE_GDKPIXBUF "Build with gdk-pixbuf support" ${GDK_PIXBUF_FOUND})
-option(ENABLE_LIBIMOBILEDEVICE "Build with libimobiledevice support" ${LIBIMOBILEDEVICE_FOUND})
+# Definitions
+target_compile_definitions(gpod PRIVATE
+  GETTEXT_PACKAGE="libgpod"
+  $<$<PLATFORM_ID:Windows>:NOMINMAX WIN32_LEAN_AND_MEAN _CRT_SECURE_NO_WARNINGS>
+  $<$<STREQUAL:${CMAKE_SYSTEM_NAME},Linux>:HAVE_STRUCT_TM_TM_GMTOFF>
+)
 
-set(HAVE_GDKPIXBUF ${ENABLE_GDKPIXBUF})
-set(HAVE_LIBIMOBILEDEVICE ${ENABLE_LIBIMOBILEDEVICE})
-
-set(LIBGPOD_BLOB_DIR "${CMAKE_INSTALL_PREFIX}/libgpod")
-set(VERSION 0.8.0)
-
-if(HAVE_GDKPIXBUF)
-  set(GDKPIXBUF_REQ "gdk-pixbuf-2.0")
-endif()
-
-if(HAVE_LIBIMOBILEDEVICE)
-  set(LIBIMOBILEDEVICE_REQ "libimobiledevice-1.0")
-endif()
-
-if(GLIB_VERSION GREATER_EQUAL 2.68)
-  set(HAVE_G_MEMDUP2 ON)
-endif()
-
-configure_file(config.h.in config.h)
-configure_file(libgpod-1.0.pc.in libgpod-1.0.pc @ONLY)
-
-# Quoted properly as a compile definition
-add_compile_definitions(GETTEXT_PACKAGE="libgpod")
-
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-  add_compile_definitions(HAVE_STRUCT_TM_TM_GMTOFF)
-endif()
-# add_compile_definitions(HAVE_LOCALTIME_R)
-
-# MSVC needs explicit exports to produce an import lib.
-if (MSVC)
+# Windows niceties
+if(MSVC)
   set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+  # If you have a Windows compatibility header, force-include it:
+  target_compile_options(gpod PRIVATE "/FI${CMAKE_CURRENT_SOURCE_DIR}/src/win_compat.h")
+  target_include_directories(gpod PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
 endif()
 
-add_library(gpod SHARED ${SOURCES})
-
-target_include_directories(gpod SYSTEM PRIVATE
-  ${GLIB_INCLUDE_DIRS}
-  ${GMODULE_INCLUDE_DIRS}
-  ${GOBJECT_INCLUDE_DIRS}
-  ${LIBPLIST_INCLUDE_DIRS}
-  ${SQLITE3_INCLUDE_DIRS}
-  ${ZLIB_INCLUDE_DIRS}
+# Includes (public + config.h)
+target_include_directories(gpod
+  PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    "${CMAKE_CURRENT_BINARY_DIR}"          # config.h
+  PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/include"  # public headers
 )
 
-target_include_directories(gpod PRIVATE
-  ${CMAKE_CURRENT_BINARY_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
-
-target_link_directories(gpod PRIVATE
-  ${GLIB_LIBRARY_DIRS}
-  ${GMODULE_LIBRARY_DIRS}
-  ${GOBJECT_LIBRARY_DIRS}
-  ${LIBPLIST_LIBRARY_DIRS}
-  ${SQLITE3_LIBRARY_DIRS}
-  ${ZLIB_LIBRARY_DIRS}
-)
-
+# Link deps (guard optionals by FOUND)
 target_link_libraries(gpod PRIVATE
-  ${GLIB_LIBRARIES}
-  ${GMODULE_LIBRARIES}
-  ${GOBJECT_LIBRARIES}
-  ${LIBPLIST_LIBRARIES}
-  ${SQLITE3_LIBRARIES}
-  ${ZLIB_LIBRARIES}
+  PkgConfig::GLIB
+  PkgConfig::GMODULE
+  PkgConfig::GOBJECT
+  PkgConfig::SQLITE3
+  PkgConfig::ZLIB
+  PkgConfig::LIBPLIST
+  $<$<BOOL:${GDKPIXBUF_FOUND}>:PkgConfig::GDKPIXBUF>
+  $<$<BOOL:${LIBIMOBILEDEVICE_FOUND}>:PkgConfig::LIBIMOBILEDEVICE>
 )
 
-if(ENABLE_GDKPIXBUF)
-  target_include_directories(gpod SYSTEM PRIVATE ${GDK_PIXBUF_INCLUDE_DIRS})
-  target_link_directories(gpod PRIVATE ${GDK_PIXBUF_LIBRARY_DIRS})
-  target_link_libraries(gpod PRIVATE ${GDK_PIXBUF_LIBRARIES})
-endif()
+set_target_properties(gpod PROPERTIES
+  OUTPUT_NAME "gpod"
+  VERSION   "${PROJECT_VERSION}"
+  SOVERSION "${PROJECT_VERSION_MAJOR}"
+)
 
-if(ENABLE_LIBIMOBILEDEVICE)
-  target_include_directories(gpod SYSTEM PRIVATE ${LIBIMOBILEDEVICE_INCLUDE_DIRS})
-  target_link_directories(gpod PRIVATE ${LIBIMOBILEDEVICE_LIBRARY_DIRS})
-  target_link_libraries(gpod PRIVATE ${LIBIMOBILEDEVICE_LIBRARIES})
-endif()
-
-# Use GNUInstallDirs (portable on Windows, too)
+# --- Install ---
 install(TARGETS gpod
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -209,13 +155,14 @@ install(TARGETS gpod
 )
 
 install(
-  DIRECTORY src/
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gpod-1.0/gpod
-  FILES_MATCHING PATTERN itdb.h
+  DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/gpod-1.0"
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 install(
-  FILES ${CMAKE_CURRENT_BINARY_DIR}/libgpod-1.0.pc
+  FILES "${CMAKE_CURRENT_BINARY_DIR}/libgpod-1.0.pc"
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
 )
 
+# ---- Tests ----
+# TODO

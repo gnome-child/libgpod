@@ -1,0 +1,184 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/gdk-pixbuf-x64-windows-2.42.12#1-832372dc-a3c6-4bb5-9c90-ea2fe3e50b3f",
+  "name": "gdk-pixbuf:x64-windows@2.42.12#1 16cdac83b8196c8302598ba40af8f5afadc8cf14af76831e0e6e2c37381fb72b",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2024-10-18-e392d7347fe72dff56e7857f7571c22301237ae6"
+    ],
+    "created": "2025-09-29T03:22:01Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-2"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-3"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-4"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-5"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-3",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-4",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-5",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "gdk-pixbuf",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "2.42.12#1",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg@a3dd13dfa169e843726c8ac404a85d60aebdb981",
+      "homepage": "https://gitlab.gnome.org/GNOME/gdk-pixbuf",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "Image loading library.",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "gdk-pixbuf:x64-windows",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "16cdac83b8196c8302598ba40af8f5afadc8cf14af76831e0e6e2c37381fb72b",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/buildtrees/versioning_/versions/gdk-pixbuf/a3dd13dfa169e843726c8ac404a85d60aebdb981/fix-static-deps.patch",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3f56ff4b03fbd1201ce6be5431f8188bf904303f253a1e0f39d7f67c3fd75462"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/buildtrees/versioning_/versions/gdk-pixbuf/a3dd13dfa169e843726c8ac404a85d60aebdb981/fix_build_error_windows.patch",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "45ffbc326c789b6a5d363b3045042e815ff3603930cf9bdc00de69757df5fcf8"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/buildtrees/versioning_/versions/gdk-pixbuf/a3dd13dfa169e843726c8ac404a85d60aebdb981/loaders-cache.patch",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "af2cd07f90807e49c3fb56dffd694531950114bf359bef61811745a180044fd8"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/buildtrees/versioning_/versions/gdk-pixbuf/a3dd13dfa169e843726c8ac404a85d60aebdb981/portfile.cmake",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "368670b11211e0c3fb4a59314b3b0728669fcdea44e0b5fcc63b694694059cf1"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/buildtrees/versioning_/versions/gdk-pixbuf/a3dd13dfa169e843726c8ac404a85d60aebdb981/use-libtiff-4-pkgconfig.patch",
+      "SPDXID": "SPDXRef-file-4",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f80e04b4eff2597ea8a7803a26db23ce5349190a8d6666810d37ea4ea1f9c744"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/buildtrees/versioning_/versions/gdk-pixbuf/a3dd13dfa169e843726c8ac404a85d60aebdb981/vcpkg.json",
+      "SPDXID": "SPDXRef-file-5",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c8e22d972e284ae8f44e2242e72d1a5fe1d8b3eb8772432a53169fadff61e9fe"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

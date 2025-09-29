@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=C:/Users/Shea/vcpkg/packages/gdk-pixbuf_x64-windows/bin/gdk-pixbuf-thumbnailer
+Exec=C:/Users/Shea/vcpkg/packages/gdk-pixbuf_x64-windows/bin/gdk-pixbuf-thumbnailer -s %s %u %o
+MimeType=image/png;image/gif;image/jpeg;image/tiff;

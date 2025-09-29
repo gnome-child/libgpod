@@ -1,0 +1,264 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/libimobiledevice-x64-windows-2023-07-05#1-f7f5e3d6-915c-4b58-a0c8-e5dd7c7bde33",
+  "name": "libimobiledevice:x64-windows@2023-07-05#1 d39393812d882b0af500e5da9f74c2d2e7ddda36fa3737ee0d7e81c684d562b3",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2024-10-18-e392d7347fe72dff56e7857f7571c22301237ae6"
+    ],
+    "created": "2025-09-29T03:09:43Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-2"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-3"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-4"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-5"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-6"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-7"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-8"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-3",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-4",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-5",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-6",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-7",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-8",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "libimobiledevice",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "2023-07-05#1",
+      "downloadLocation": "NOASSERTION",
+      "homepage": "http://www.libimobiledevice.org",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "A cross-platform protocol library to communicate with iOS devices",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "libimobiledevice:x64-windows",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "d39393812d882b0af500e5da9f74c2d2e7ddda36fa3737ee0d7e81c684d562b3",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-1",
+      "name": "libimobiledevice/libimobiledevice",
+      "downloadLocation": "git+https://github.com/libimobiledevice/libimobiledevice@6fc41f57fc607df9b07446ca45bdf754225c9bd9",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "0ceae43eb5c193c173536a20a6efde44b0ff4b5e6029342f59cb6b0dcad2fd629713db922f17b331b5f359a649b5402c18637e636bcdb5eb5c53bec12ff94903"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/001_fix_msvc.patch",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "8266b66971981eadef0f8be516d20d053aead78c5f7658dfb2f46d7f7d2e37b5"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/002_fix_static_build.patch",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e73d3a2d295caf71cdebc0d3d81b92cc0f815a9704fc39a43c1186629a15712f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/003_fix_api.patch",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "98e57b6b871e122db9776055e70f0375e824726893c92b46272597baf2d1359e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/004_fix_tools_msvc.patch",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "022a11acfa5edd60e73bf21c688ad01014ba5f120fbecf12faef78a26ba4b7d3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/CMakeLists.txt",
+      "SPDXID": "SPDXRef-file-4",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "84916733cb732dec0991e5806b66ce99bbdbc8fffeed6f72fe76e3df61d6673d"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/exports.def",
+      "SPDXID": "SPDXRef-file-5",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a09140cbd6a88d685b42c5e8e638398948c6c4626b76561559e269037fe88fdf"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/portfile.cmake",
+      "SPDXID": "SPDXRef-file-6",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "62903f8442b9c36dd0a1265133bc242d396a0fac4c228b87f309c8165c96e88f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/usage",
+      "SPDXID": "SPDXRef-file-7",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2aac2943d53b2d03c3e9d86d1b71302ab44420516bef47af6ba7b452b195a1f3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Shea/vcpkg/ports/libimobiledevice/vcpkg.json",
+      "SPDXID": "SPDXRef-file-8",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a819775bb6578c7d3789192422c901236ec7cfe1140a3a8cfc478d6174418f83"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}
