@@ -1999,25 +1999,34 @@ leave:
 
 static int cbk_calc_sha1_one_block(FILE *f, unsigned char sha1[20])
 {
-    const guint BLOCK_SIZE = 1024;
-    unsigned char block[BLOCK_SIZE];
+    enum { GPOD_SHA1_BLOCK_SIZE = 1024 }; /* compile-time constant (works on MSVC) */
+    unsigned char block[GPOD_SHA1_BLOCK_SIZE];
     size_t read_count;
-    GChecksum *checksum;
+    GChecksum *checksum = NULL;
     gsize sha1_len;
 
-    read_count = fread(block, BLOCK_SIZE, 1, f);
-    if ((read_count != 1)) {
-	if (feof(f)) {
-	    return 1;
-	} else {
-	    return -1;
-	}
+    /* Read exactly one 1KB block */
+    read_count = fread(block, GPOD_SHA1_BLOCK_SIZE, 1, f);
+    if (read_count != 1) {
+        if (feof(f)) {
+            /* EOF before a full block */
+            return 1;
+        } else {
+            /* I/O error */
+            return -1;
+        }
     }
 
+    /* Compute SHA1 of the block */
     sha1_len = g_checksum_type_get_length(G_CHECKSUM_SHA1);
-    g_assert (sha1_len == 20);
+    g_assert(sha1_len == 20);
+
     checksum = g_checksum_new(G_CHECKSUM_SHA1);
-    g_checksum_update(checksum, block, BLOCK_SIZE);
+    if (!checksum) {
+        return -1;
+    }
+
+    g_checksum_update(checksum, block, GPOD_SHA1_BLOCK_SIZE);
     g_checksum_get_digest(checksum, sha1, &sha1_len);
     g_checksum_free(checksum);
 

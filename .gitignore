@@ -125,3 +125,4 @@ bindings/mono/libgpod-sharp/libgpod-sharp.pidb
 .kdev4
 *.kdev4
 /build
+/build-msvc

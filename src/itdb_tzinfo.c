@@ -39,9 +39,28 @@
 #include <time.h>
 
 #include <glib/gstdio.h>
+#include <time.h>
 
-#ifdef __CYGWIN__
-    extern __IMPORT long _timezone;
+/* ---- Portable timezone accessor (seconds west of UTC) ---- */
+#if defined(_MSC_VER)
+  /* MSVC has _get_timezone(long*) */
+  static inline long gpod_tz_seconds(void) {
+    long z = 0;
+    _get_timezone(&z);
+    return z;
+  }
+#elif defined(__CYGWIN__)
+  /* Cygwin exposes _timezone as an import */
+  extern __IMPORT long _timezone;
+  static inline long gpod_tz_seconds(void) {
+    return _timezone;
+  }
+#else
+  /* POSIX: 'timezone' is a long, usually from <time.h> */
+  extern long timezone;
+  static inline long gpod_tz_seconds(void) {
+    return timezone;
+  }
 #endif
 
 static gboolean parse_tzdata (const char *tzname, time_t start, time_t end,
@@ -89,12 +108,12 @@ get_preferences_path (const Itdb_Device *device)
 
 static gboolean itdb_device_read_raw_timezone (const char *prefs_path,
                                                glong offset,
-                                               gint16 *_timezone)
+                                               gint16 *out_raw_tz)
 {
     FILE *f;
     int result;
 
-    if (_timezone == NULL) {
+    if (out_raw_tz == NULL) {
         return FALSE;
     }
 
@@ -109,7 +128,7 @@ static gboolean itdb_device_read_raw_timezone (const char *prefs_path,
         return FALSE;
     }
 
-    result = fread (_timezone, sizeof (*_timezone), 1, f);
+    result = fread (out_raw_tz, sizeof (*out_raw_tz), 1, f);
     if (result != 1) {
         fclose (f);
         return FALSE;
@@ -117,7 +136,7 @@ static gboolean itdb_device_read_raw_timezone (const char *prefs_path,
 
     fclose (f);
 
-    *_timezone = GINT16_FROM_LE (*_timezone);
+    *out_raw_tz = GINT16_FROM_LE (*out_raw_tz);
 
     return TRUE;
 }
@@ -197,42 +216,8 @@ static gboolean raw_timezone_to_utc_shift_6g (gint16 city_id,
 
 static gint get_local_timezone (void)
 {
-
-#ifdef HAVE_STRUCT_TM_TM_GMTOFF
-    /*
-     * http://www.gnu.org/software/libc/manual/html_node/Time-Zone-Functions.html
-     *
-     * Variable: long int timezone
-     *
-     * This contains the difference between UTC and the latest local
-     * standard time, in seconds west of UTC. For example, in the
-     * U.S. Eastern time zone, the value is 5*60*60. Unlike the
-     * tm_gmtoff member of the broken-down time structure, this value is
-     * not adjusted for daylight saving, and its sign is reversed. In
-     * GNU programs it is better to use tm_gmtoff, since it contains the
-     * correct offset even when it is not the latest one.
-     */
-    time_t t = time(NULL);
-    glong seconds_east_utc;
-#ifdef HAVE_LOCALTIME_R
-    {
-        struct tm tmb;
-        localtime_r(&t, &tmb);
-        seconds_east_utc = tmb.tm_gmtoff;
-    }
-#else /* !HAVE_LOCALTIME_R */
-    {
-        struct tm* tp;
-        tp = localtime(&t);
-        seconds_east_utc = tp->__tm_gmtoff;
-    }
-#   endif /* !HAVE_LOCALTIME_R */
-    return seconds_east_utc; /* mimic the old behaviour when global variable 'timezone' from the 'time.h' header was returned */
-#elif defined(__CYGWIN__)   /* !HAVE_STRUCT_TM_TM_GMTOFF */
-    return (gint) _timezone * -1; /* global variable defined by time.h, see man tzset */
-#else /* !HAVE_STRUCT_TM_TM_GMTOFF && !__CYGWIN__ */
-    return timezone * -1; /* global variable defined by time.h, see man tzset */
-#endif
+    /* gpod_tz_seconds() returns seconds west of UTC; negate to get east-of-UTC */
+    return (gint)(-gpod_tz_seconds());
 }
 
 /* This function reads the timezone information from the iPod and sets it in
@@ -242,7 +227,7 @@ static gint get_local_timezone (void)
 G_GNUC_INTERNAL void itdb_device_set_timezone_info (Itdb_Device *device)
 {
     gint16 raw_timezone;
-    gint _timezone = 0;
+    gint utc_shift_seconds = 0;
     gboolean result;
     struct stat stat_buf;
     int status;
@@ -292,16 +277,16 @@ G_GNUC_INTERNAL void itdb_device_set_timezone_info (Itdb_Device *device)
     if (!result) {
 	return;
     }
-    result = raw_timezone_converter (raw_timezone, &_timezone);
+    result = raw_timezone_converter (raw_timezone, &utc_shift_seconds);
     if (!result) {
 	return;
     }
 
-    if ((_timezone < -12*3600) || (_timezone > 12 * 3600)) {
-        return;
+    if ((utc_shift_seconds < -12*3600) || (utc_shift_seconds > 12 * 3600)) {
+         return;
     }
-
-    device->timezone_shift = _timezone;
+    
+    device->timezone_shift = utc_shift_seconds;
 }
 
 /*
