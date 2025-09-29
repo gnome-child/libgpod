@@ -125,4 +125,4 @@ bindings/mono/libgpod-sharp/libgpod-sharp.pidb
 .kdev4
 *.kdev4
 /build
-/vcpkg_installed
+/vcpkg_installed/*
