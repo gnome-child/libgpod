@@ -289,121 +289,156 @@ G_GNUC_INTERNAL void itdb_device_set_timezone_info (Itdb_Device *device)
     device->timezone_shift = utc_shift_seconds;
 }
 
+
 /*
- * The following function was copied from libgweather/gweather-timezone.c
+ * This function replaces the old parse_tzdata commented out below.
  *
- * Copyright 2008, Red Hat, Inc.
+ * The old one assumed a particular file format and crashed on Windows.
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public License
- * as published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * libgweather uses it for a different purpose than libgpod's, namely
- * finding if a given world location uses DST (not 'now' but at some point
- * during the year) and getting the offset. 
- * libgpod only needs to know the offset from UTC, and if start == end when
- * calling this function, this is exactly what we get!
+ * We avoid that by using GTimeZone instead.
  */
-#define ZONEINFO_DIR "/usr/share/zoneinfo"
-
-#define TZ_MAGIC "TZif"
-#define TZ_HEADER_SIZE 44
-#define TZ_TIMECNT_OFFSET 32
-#define TZ_TRANSITIONS_OFFSET 44
-
-#define TZ_TTINFO_SIZE 6
-#define TZ_TTINFO_GMTOFF_OFFSET 0
-#define TZ_TTINFO_ISDST_OFFSET 4
-
 static gboolean
-parse_tzdata (const char *_tzname, time_t start, time_t end,
-	      int *offset, gboolean *has_dst, int *dst_offset)
+parse_tzdata (const char *tzname, time_t start, time_t end,
+              int *offset, gboolean *has_dst, int *dst_offset)
 {
-    char *filename, *contents;
-    gsize length;
-    int timecnt, transitions_size, ttinfo_map_size;
-    int initial_transition = -1, second_transition = -1;
-    gint32 *transitions;
-    char *ttinfo_map, *ttinfos;
-    gint32 initial_offset, second_offset;
-    char initial_isdst, second_isdst;
-    int i;
+    (void)end;
 
-    filename = g_build_filename (ZONEINFO_DIR, _tzname, NULL);
-    if (!g_file_get_contents (filename, &contents, &length, NULL)) {
-	g_free (filename);
-	return FALSE;
-    }
-    g_free (filename);
+    GTimeZone *tz = g_time_zone_new (tzname);
+    if (!tz)
+        return FALSE;
 
-    if (length < TZ_HEADER_SIZE ||
-	strncmp (contents, TZ_MAGIC, strlen (TZ_MAGIC)) != 0) {
-	g_free (contents);
-	return FALSE;
+    gint64 when = (gint64) start;
+    gint interval = g_time_zone_find_interval (tz, G_TIME_TYPE_UNIVERSAL, when);
+    if (interval == -1) {
+        g_time_zone_unref (tz);
+        return FALSE;
     }
 
-    timecnt = GUINT32_FROM_BE (*(guint32 *)(contents + TZ_TIMECNT_OFFSET));
-    transitions = (void *)(contents + TZ_TRANSITIONS_OFFSET);
-    transitions_size = timecnt * sizeof (*transitions);
-    ttinfo_map = (void *)(contents + TZ_TRANSITIONS_OFFSET + transitions_size);
-    ttinfo_map_size = timecnt;
-    ttinfos = (void *)(ttinfo_map + ttinfo_map_size);
+    gint seconds = g_time_zone_get_offset (tz, interval);
+    *offset = seconds / 60;
 
-    /* @transitions is an array of @timecnt time_t values. We need to
-     * find the transition into the current offset, which is the last
-     * transition before @start. If the following transition is before
-     * @end, then note that one too, since it presumably means we're
-     * doing DST.
-     */
-    for (i = 1; i < timecnt && initial_transition == -1; i++) {
-	if (GINT32_FROM_BE (transitions[i]) > start) {
-	    initial_transition = ttinfo_map[i - 1];
-	    if (GINT32_FROM_BE (transitions[i]) < end)
-		second_transition = ttinfo_map[i];
-	}
-    }
-    if (initial_transition == -1) {
-	if (timecnt)
-	    initial_transition = ttinfo_map[timecnt - 1];
-	else
-	    initial_transition = 0;
-    }
+    if (has_dst)     *has_dst = FALSE;
+    if (dst_offset)  *dst_offset = *offset;
 
-    /* Copy the data out of the corresponding ttinfo structs */
-    initial_offset = *(gint32 *)(ttinfos +
-				 initial_transition * TZ_TTINFO_SIZE +
-				 TZ_TTINFO_GMTOFF_OFFSET);
-    initial_offset = GINT32_FROM_BE (initial_offset);
-    initial_isdst = *(ttinfos +
-		      initial_transition * TZ_TTINFO_SIZE +
-		      TZ_TTINFO_ISDST_OFFSET);
-
-    if (second_transition != -1) {
-	second_offset = *(gint32 *)(ttinfos +
-				    second_transition * TZ_TTINFO_SIZE +
-				    TZ_TTINFO_GMTOFF_OFFSET);
-	second_offset = GINT32_FROM_BE (second_offset);
-	second_isdst = *(ttinfos +
-			 second_transition * TZ_TTINFO_SIZE +
-			 TZ_TTINFO_ISDST_OFFSET);
-
-	*has_dst = (initial_isdst != second_isdst);
-    } else
-	*has_dst = FALSE;
-
-    if (!*has_dst)
-	*offset = initial_offset / 60;
-    else {
-	if (initial_isdst) {
-	    *offset = second_offset / 60;
-	    *dst_offset = initial_offset / 60;
-	} else {
-	    *offset = initial_offset / 60;
-	    *dst_offset = second_offset / 60;
-	}
-    }
-
-    g_free (contents);
+    g_time_zone_unref (tz);
     return TRUE;
 }
+
+// /*
+//  * The following function was copied from libgweather/gweather-timezone.c
+//  *
+//  * Copyright 2008, Red Hat, Inc.
+//  *
+//  * This library is free software; you can redistribute it and/or
+//  * modify it under the terms of the GNU Lesser General Public License
+//  * as published by the Free Software Foundation; either version 2.1 of
+//  * the License, or (at your option) any later version.
+//  *
+//  * libgweather uses it for a different purpose than libgpod's, namely
+//  * finding if a given world location uses DST (not 'now' but at some point
+//  * during the year) and getting the offset. 
+//  * libgpod only needs to know the offset from UTC, and if start == end when
+//  * calling this function, this is exactly what we get!
+//  */
+// #define ZONEINFO_DIR "/usr/share/zoneinfo"
+
+// #define TZ_MAGIC "TZif"
+// #define TZ_HEADER_SIZE 44
+// #define TZ_TIMECNT_OFFSET 32
+// #define TZ_TRANSITIONS_OFFSET 44
+
+// #define TZ_TTINFO_SIZE 6
+// #define TZ_TTINFO_GMTOFF_OFFSET 0
+// #define TZ_TTINFO_ISDST_OFFSET 4
+
+// static gboolean
+// parse_tzdata (const char *_tzname, time_t start, time_t end,
+// 	      int *offset, gboolean *has_dst, int *dst_offset)
+// {
+//     char *filename, *contents;
+//     gsize length;
+//     int timecnt, transitions_size, ttinfo_map_size;
+//     int initial_transition = -1, second_transition = -1;
+//     gint32 *transitions;
+//     char *ttinfo_map, *ttinfos;
+//     gint32 initial_offset, second_offset;
+//     char initial_isdst, second_isdst;
+//     int i;
+
+//     filename = g_build_filename (ZONEINFO_DIR, _tzname, NULL);
+//     if (!g_file_get_contents (filename, &contents, &length, NULL)) {
+// 	g_free (filename);
+// 	return FALSE;
+//     }
+//     g_free (filename);
+
+//     if (length < TZ_HEADER_SIZE ||
+// 	strncmp (contents, TZ_MAGIC, strlen (TZ_MAGIC)) != 0) {
+// 	g_free (contents);
+// 	return FALSE;
+//     }
+
+//     timecnt = GUINT32_FROM_BE (*(guint32 *)(contents + TZ_TIMECNT_OFFSET));
+//     transitions = (void *)(contents + TZ_TRANSITIONS_OFFSET);
+//     transitions_size = timecnt * sizeof (*transitions);
+//     ttinfo_map = (void *)(contents + TZ_TRANSITIONS_OFFSET + transitions_size);
+//     ttinfo_map_size = timecnt;
+//     ttinfos = (void *)(ttinfo_map + ttinfo_map_size);
+
+//     /* @transitions is an array of @timecnt time_t values. We need to
+//      * find the transition into the current offset, which is the last
+//      * transition before @start. If the following transition is before
+//      * @end, then note that one too, since it presumably means we're
+//      * doing DST.
+//      */
+//     for (i = 1; i < timecnt && initial_transition == -1; i++) {
+// 	if (GINT32_FROM_BE (transitions[i]) > start) {
+// 	    initial_transition = ttinfo_map[i - 1];
+// 	    if (GINT32_FROM_BE (transitions[i]) < end)
+// 		second_transition = ttinfo_map[i];
+// 	}
+//     }
+//     if (initial_transition == -1) {
+// 	if (timecnt)
+// 	    initial_transition = ttinfo_map[timecnt - 1];
+// 	else
+// 	    initial_transition = 0;
+//     }
+
+//     /* Copy the data out of the corresponding ttinfo structs */
+//     initial_offset = *(gint32 *)(ttinfos +
+// 				 initial_transition * TZ_TTINFO_SIZE +
+// 				 TZ_TTINFO_GMTOFF_OFFSET);
+//     initial_offset = GINT32_FROM_BE (initial_offset);
+//     initial_isdst = *(ttinfos +
+// 		      initial_transition * TZ_TTINFO_SIZE +
+// 		      TZ_TTINFO_ISDST_OFFSET);
+
+//     if (second_transition != -1) {
+// 	second_offset = *(gint32 *)(ttinfos +
+// 				    second_transition * TZ_TTINFO_SIZE +
+// 				    TZ_TTINFO_GMTOFF_OFFSET);
+// 	second_offset = GINT32_FROM_BE (second_offset);
+// 	second_isdst = *(ttinfos +
+// 			 second_transition * TZ_TTINFO_SIZE +
+// 			 TZ_TTINFO_ISDST_OFFSET);
+
+// 	*has_dst = (initial_isdst != second_isdst);
+//     } else
+// 	*has_dst = FALSE;
+
+//     if (!*has_dst)
+// 	*offset = initial_offset / 60;
+//     else {
+// 	if (initial_isdst) {
+// 	    *offset = second_offset / 60;
+// 	    *dst_offset = initial_offset / 60;
+// 	} else {
+// 	    *offset = initial_offset / 60;
+// 	    *dst_offset = second_offset / 60;
+// 	}
+//     }
+
+//     g_free (contents);
+//     return TRUE;
+// }
