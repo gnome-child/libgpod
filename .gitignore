@@ -1,2 +1,5 @@
 .cache
 .xmake
+.clang-format
+.clang-tidy
+compile_commands.json
