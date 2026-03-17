@@ -1,0 +1,27 @@
+{
+    errdata = "\27[1msrc/itdb_thumb.c:297:33: \27[0m\27[0;1;35mwarning: \27[0m\27[1mequality comparison with extraneous parentheses [-Wparentheses-equality]\27[0m\
+  297 |     \27[0;34mdo\27[0m { \27[0;34mif\27[0m ((thumbs->data_type == ITDB_THUMB_TYPE_IPOD)) { } \27[0;34melse\27[0m { g_return_if_fail_warning (((gchar*) \27[0;32m0\27[0m), ((\27[0;34mconst\27[0m \27[0;34mchar\27[0m*) (\27[0;32m__func__\27[0m)), \27[0;32m\"thumbs->data_type == ITDB_THUMB_TYPE_IPOD\"\27[0m); \27[0;34mreturn\27[0m (((\27[0;34mvoid\27[0m*)\27[0;32m0\27[0m)); } } \27[0;34mwhile\27[0m (\27[0;32m0\27[0m);\27[0m\
+      | \27[0;1;32m              ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~\
+\27[0m\27[1msrc/itdb_thumb.c:297:33: \27[0m\27[0;1;36mnote: \27[0mremove extraneous parentheses around the comparison to silence this warning\27[0m\
+  297 |     \27[0;34mdo\27[0m { \27[0;34mif\27[0m ((thumbs->data_type == ITDB_THUMB_TYPE_IPOD)) { } \27[0;34melse\27[0m { g_return_if_fail_warning (((gchar*) \27[0;32m0\27[0m), ((\27[0;34mconst\27[0m \27[0;34mchar\27[0m*) (\27[0;32m__func__\27[0m)), \27[0;32m\"thumbs->data_type == ITDB_THUMB_TYPE_IPOD\"\27[0m); \27[0;34mreturn\27[0m (((\27[0;34mvoid\27[0m*)\27[0;32m0\27[0m)); } } \27[0;34mwhile\27[0m (\27[0;32m0\27[0m);\27[0m\
+      | \27[0;1;32m             ~                  ^                      ~\
+\27[0m\27[1msrc/itdb_thumb.c:297:33: \27[0m\27[0;1;36mnote: \27[0muse '=' to turn this equality comparison into an assignment\27[0m\
+  297 |     \27[0;34mdo\27[0m { \27[0;34mif\27[0m ((thumbs->data_type == ITDB_THUMB_TYPE_IPOD)) { } \27[0;34melse\27[0m { g_return_if_fail_warning (((gchar*) \27[0;32m0\27[0m), ((\27[0;34mconst\27[0m \27[0;34mchar\27[0m*) (\27[0;32m__func__\27[0m)), \27[0;32m\"thumbs->data_type == ITDB_THUMB_TYPE_IPOD\"\27[0m); \27[0;34mreturn\27[0m (((\27[0;34mvoid\27[0m*)\27[0;32m0\27[0m)); } } \27[0;34mwhile\27[0m (\27[0;32m0\27[0m);\27[0m\
+      | \27[0;1;32m                                ^~\
+\27[0m      | \27[0;32m                                =\
+\27[0m\27[1msrc/itdb_thumb.c:425:4: \27[0m\27[0;1;35mwarning: \27[0m\27[1mexpression result unused [-Wunused-value]\27[0m\
+  425 |   ((__typeof__ (pixbuf)) (g_object_ref) (pixbuf));\27[0m\
+      | \27[0;1;32m   ^                     ~~~~~~~~~~~~~~~~~~~~~~~\
+\27[0m\27[1msrc/itdb_thumb.c:525:43: \27[0m\27[0;1;35mwarning: \27[0m\27[1mequality comparison with extraneous parentheses [-Wparentheses-equality]\27[0m\
+  525 |         \27[0;34mdo\27[0m { \27[0;34mif\27[0m ((thumb->parent.data_type == ITDB_THUMB_TYPE_IPOD)) { } \27[0;34melse\27[0m { g_return_if_fail_warning (((gchar*) \27[0;32m0\27[0m), ((\27[0;34mconst\27[0m \27[0;34mchar\27[0m*) (\27[0;32m__func__\27[0m)), \27[0;32m\"thumb->parent.data_type == ITDB_THUMB_TYPE_IPOD\"\27[0m); \27[0;34mreturn\27[0m (((\27[0;34mvoid\27[0m*)\27[0;32m0\27[0m)); } } \27[0;34mwhile\27[0m (\27[0;32m0\27[0m);\27[0m\
+      | \27[0;1;32m                  ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~\
+\27[0m\27[1msrc/itdb_thumb.c:525:43: \27[0m\27[0;1;36mnote: \27[0mremove extraneous parentheses around the comparison to silence this warning\27[0m\
+  525 |         \27[0;34mdo\27[0m { \27[0;34mif\27[0m ((thumb->parent.data_type == ITDB_THUMB_TYPE_IPOD)) { } \27[0;34melse\27[0m { g_return_if_fail_warning (((gchar*) \27[0;32m0\27[0m), ((\27[0;34mconst\27[0m \27[0;34mchar\27[0m*) (\27[0;32m__func__\27[0m)), \27[0;32m\"thumb->parent.data_type == ITDB_THUMB_TYPE_IPOD\"\27[0m); \27[0;34mreturn\27[0m (((\27[0;34mvoid\27[0m*)\27[0;32m0\27[0m)); } } \27[0;34mwhile\27[0m (\27[0;32m0\27[0m);\27[0m\
+      | \27[0;1;32m                 ~                        ^                      ~\
+\27[0m\27[1msrc/itdb_thumb.c:525:43: \27[0m\27[0;1;36mnote: \27[0muse '=' to turn this equality comparison into an assignment\27[0m\
+  525 |         \27[0;34mdo\27[0m { \27[0;34mif\27[0m ((thumb->parent.data_type == ITDB_THUMB_TYPE_IPOD)) { } \27[0;34melse\27[0m { g_return_if_fail_warning (((gchar*) \27[0;32m0\27[0m), ((\27[0;34mconst\27[0m \27[0;34mchar\27[0m*) (\27[0;32m__func__\27[0m)), \27[0;32m\"thumb->parent.data_type == ITDB_THUMB_TYPE_IPOD\"\27[0m); \27[0;34mreturn\27[0m (((\27[0;34mvoid\27[0m*)\27[0;32m0\27[0m)); } } \27[0;34mwhile\27[0m (\27[0;32m0\27[0m);\27[0m\
+      | \27[0;1;32m                                          ^~\
+\27[0m      | \27[0;32m                                          =\
+\27[0m3 warnings generated.\
+"
+}

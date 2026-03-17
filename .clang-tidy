@@ -1,0 +1,17 @@
+# Hold my hand
+Checks: >
+  clang-diagnostic-*,
+  bugprone-*,
+  modernize-*,
+  performance-*,
+  readability-*
+
+# Formatting
+UseColor: true
+FormatStyle: file
+
+# Probably a bug IS a bug
+WarningsAsErrors: 'bugprone-*,'
+
+# Filter out deps
+HeaderFilterRegex: HeaderFilterRegex: '^(src|include)/'

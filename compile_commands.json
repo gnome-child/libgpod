@@ -1,0 +1,181 @@
+[
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-ls/linux/x86_64/debug/tests/test-ls.c.o", "tests/test-ls.c"],
+  "file": "tests/test-ls.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang++", "-c", "-Qunused-arguments", "-m64", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-rebuild-db/linux/x86_64/debug/tests/test-rebuild-db.cc.o", "tests/test-rebuild-db.cc"],
+  "file": "tests/test-rebuild-db.cc"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_itdb_main/linux/x86_64/debug/tests/itdb_main.c.o", "tests/itdb_main.c"],
+  "file": "tests/itdb_main.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-fw-id/linux/x86_64/debug/tests/test-fw-id.c.o", "tests/test-fw-id.c"],
+  "file": "tests/test-fw-id.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_thumb.c.o", "src/itdb_thumb.c"],
+  "file": "src/itdb_thumb.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_track.c.o", "src/itdb_track.c"],
+  "file": "src/itdb_track.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_zlib.c.o", "src/itdb_zlib.c"],
+  "file": "src/itdb_zlib.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/pixmaps.c.o", "src/pixmaps.c"],
+  "file": "src/pixmaps.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_itunesdb.c.o", "src/itdb_itunesdb.c"],
+  "file": "src/itdb_itunesdb.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/db-parse-context.c.o", "src/db-parse-context.c"],
+  "file": "src/db-parse-context.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/db-artwork-parser.c.o", "src/db-artwork-parser.c"],
+  "file": "src/db-artwork-parser.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/db-artwork-writer.c.o", "src/db-artwork-writer.c"],
+  "file": "src/db-artwork-writer.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_artwork.c.o", "src/itdb_artwork.c"],
+  "file": "src/itdb_artwork.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_iphone.c.o", "src/itdb_iphone.c"],
+  "file": "src/itdb_iphone.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_playlist.c.o", "src/itdb_playlist.c"],
+  "file": "src/itdb_playlist.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/rijndael.c.o", "src/rijndael.c"],
+  "file": "src/rijndael.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/ithumb-writer.c.o", "src/ithumb-writer.c"],
+  "file": "src/ithumb-writer.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_tzinfo.c.o", "src/itdb_tzinfo.c"],
+  "file": "src/itdb_tzinfo.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_photoalbum.c.o", "src/itdb_photoalbum.c"],
+  "file": "src/itdb_photoalbum.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_hash58.c.o", "src/itdb_hash58.c"],
+  "file": "src/itdb_hash58.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/db-image-parser.c.o", "src/db-image-parser.c"],
+  "file": "src/db-image-parser.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_hash72.c.o", "src/itdb_hash72.c"],
+  "file": "src/itdb_hash72.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_sqlite.c.o", "src/itdb_sqlite.c"],
+  "file": "src/itdb_sqlite.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_device.c.o", "src/itdb_device.c"],
+  "file": "src/itdb_device.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_sysinfo_extended_parser.c.o", "src/itdb_sysinfo_extended_parser.c"],
+  "file": "src/itdb_sysinfo_extended_parser.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_chapterdata.c.o", "src/itdb_chapterdata.c"],
+  "file": "src/itdb_chapterdata.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/db-artwork-debug.c.o", "src/db-artwork-debug.c"],
+  "file": "src/db-artwork-debug.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_hashAB.c.o", "src/itdb_hashAB.c"],
+  "file": "src/itdb_hashAB.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-fPIC", "-std=c99", "-Ibuild", "-Isrc", "-DHAVE_GDKPIXBUF=1", "-DHAVE_LIBIMOBILEDEVICE=1", "-DGETTEXT_PACKAGE=\"libgpod\"", "-DHAVE_STRUCT_TM_TM_GMTOFF", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/gpod/linux/x86_64/debug/src/itdb_plist.c.o", "src/itdb_plist.c"],
+  "file": "src/itdb_plist.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_get-timezone/linux/x86_64/debug/tests/get-timezone.c.o", "tests/get-timezone.c"],
+  "file": "tests/get-timezone.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-write-covers/linux/x86_64/debug/tests/test-write-covers.c.o", "tests/test-write-covers.c"],
+  "file": "tests/test-write-covers.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-init-ipod/linux/x86_64/debug/tests/test-init-ipod.c.o", "tests/test-init-ipod.c"],
+  "file": "tests/test-init-ipod.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-photos/linux/x86_64/debug/tests/test-photos.c.o", "tests/test-photos.c"],
+  "file": "tests/test-photos.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-sysinfo-extended-parsing/linux/x86_64/debug/tests/test-sysinfo-extended-parsing.c.o", "tests/test-sysinfo-extended-parsing.c"],
+  "file": "tests/test-sysinfo-extended-parsing.c"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang++", "-c", "-Qunused-arguments", "-m64", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-cp/linux/x86_64/debug/tests/test-cp.cc.o", "tests/test-cp.cc"],
+  "file": "tests/test-cp.cc"
+},
+{
+  "directory": "/home/fedora/projects/libgpod",
+  "arguments": ["/usr/sbin/clang", "-c", "-Qunused-arguments", "-m64", "-std=c99", "-Ibuild", "-Isrc", "-DWITH_GZFILEOP", "-I", "/usr/include/gdk-pixbuf-2.0", "-I", "/usr/include/glycin-2", "-I", "/usr/include/freetype2", "-I", "/usr/include/libpng16", "-I", "/usr/include/harfbuzz", "-I", "/usr/include/libxml2", "-I", "/usr/include/glib-2.0", "-I", "/usr/lib64/glib-2.0/include", "-I", "/usr/include/libmount", "-I", "/usr/include/blkid", "-I", "/usr/include/sysprof-6", "-pthread", "-o", "build/.objs/test_test-covers/linux/x86_64/debug/tests/test-covers.c.o", "tests/test-covers.c"],
+  "file": "tests/test-covers.c"
+}]

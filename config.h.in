@@ -1,0 +1,15 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+/* Optional feature macros: always 0 or 1, filled in by xmake */
+
+#define HAVE_GDKPIXBUF        @HAVE_GDKPIXBUF@
+#define HAVE_LIBIMOBILEDEVICE @HAVE_LIBIMOBILEDEVICE@
+#define HAVE_UNISTD_H         @HAVE_UNISTD_H@
+#define HAVE_G_MEMDUP2        @HAVE_G_MEMDUP2@
+
+/* Blob directory from build config */
+
+#define LIBGPOD_BLOB_DIR "@LIBGPOD_BLOB_DIR@"
+
+#endif  // CONFIG_H

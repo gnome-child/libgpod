@@ -1,0 +1,47 @@
+{
+    files = {
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_thumb.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_track.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_zlib.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/pixmaps.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_itunesdb.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/db-parse-context.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/db-artwork-parser.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/db-artwork-writer.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_artwork.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_iphone.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_playlist.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/rijndael.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/ithumb-writer.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_tzinfo.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_photoalbum.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_hash58.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/db-image-parser.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_hash72.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_sqlite.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_device.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_sysinfo_extended_parser.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_chapterdata.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/db-artwork-debug.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_hashAB.c.o",
+        "build/.objs/gpod/linux/x86_64/debug/src/itdb_plist.c.o"
+    },
+    values = {
+        "/usr/sbin/clang++",
+        {
+            "-shared",
+            "-m64",
+            "-fPIC",
+            "-lgmodule-2.0",
+            "-lsqlite3",
+            "-lz",
+            "-lgdk_pixbuf-2.0",
+            "-lgobject-2.0",
+            "-lglib-2.0",
+            "-limobiledevice-1.0",
+            "-lplist-2.0",
+            "-Wl,--export-dynamic",
+            "-pthread"
+        }
+    }
+}

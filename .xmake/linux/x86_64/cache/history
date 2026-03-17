@@ -1,0 +1,19 @@
+{
+    cmdlines = {
+        "xmake f -m debug",
+        "xmake f -m debug",
+        "xmake f -m debug",
+        "xmake f -m debug",
+        "xmake test",
+        "xmake ",
+        "xmake lua /usr/share/xmake/modules/private/utils/statistics.lua",
+        "xmake ",
+        "xmake ",
+        "xmake ",
+        "xmake test",
+        "xmake run test_test-ls",
+        "xmake run test_test-ls -l",
+        "xmake run test_test-ls",
+        "xmake run test_get-timezone"
+    }
+}

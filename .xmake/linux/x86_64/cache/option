@@ -1,0 +1,30 @@
+{
+    gdkpixbuf = {
+        __sourceinfo_showmenu = { },
+        description = "Build with gdk-pixbuf support",
+        default = true,
+        __sourceinfo_default = { },
+        __sourceinfo_description = {
+            ["Build with gdk-pixbuf support"] = {
+                line = 16,
+                file = "./xmake.lua"
+            }
+        },
+        showmenu = true,
+        __scriptdir = "/home/fedora/projects/libgpod"
+    },
+    libimobiledevice = {
+        __sourceinfo_showmenu = { },
+        description = "Build with libimobiledevice support",
+        default = true,
+        __sourceinfo_default = { },
+        __sourceinfo_description = {
+            ["Build with libimobiledevice support"] = {
+                line = 22,
+                file = "./xmake.lua"
+            }
+        },
+        showmenu = true,
+        __scriptdir = "/home/fedora/projects/libgpod"
+    }
+}

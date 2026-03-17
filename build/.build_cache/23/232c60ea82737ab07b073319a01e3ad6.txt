@@ -1,0 +1,10 @@
+{
+    errdata = "\27[1msrc/itdb_hashAB.c:50:9: \27[0m\27[0;1;35mwarning: \27[0m\27[1m'g_module_build_path' is deprecated [-Wdeprecated-declarations]\27[0m\
+   50 |  path = g_module_build_path(\27[0;32m\"/libgpod\"\27[0m, \27[0;32m\"hashab\"\27[0m);\27[0m\
+      | \27[0;1;32m        ^\
+\27[0m\27[1m/usr/include/glib-2.0/gmodule.h:141:16: \27[0m\27[0;1;36mnote: \27[0m'g_module_build_path' has been explicitly marked deprecated here\27[0m\
+  141 | \27[0;34m__attribute__\27[0m((__deprecated__)) \27[0;34mextern\27[0m\
+      | \27[0;1;32m               ^\
+\27[0m1 warning generated.\
+"
+}
