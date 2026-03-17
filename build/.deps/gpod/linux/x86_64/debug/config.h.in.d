@@ -1,5 +1,0 @@
-{
-    files = {
-        "config.h.in"
-    }
-}

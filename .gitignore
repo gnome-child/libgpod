@@ -2,4 +2,5 @@
 .xmake
 .clang-format
 .clang-tidy
+build
 compile_commands.json
